@@ -28,5 +28,10 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey("d")){
             rb.AddForce(sidewaysForce*Time.deltaTime,0,0,ForceMode.VelocityChange);
         }
+
+        //game over if fall off screen
+        if(rb.position.y < -1f){
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 }
